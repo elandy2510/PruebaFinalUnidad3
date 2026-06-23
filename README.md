@@ -8,6 +8,7 @@ dom y eventos que utilice
 1. `submit`: Para procesar el formulario cuando se genera el ticket
 2. `input`: En la barra de búsqueda para filtrar los boletos en tiempo real
 3. `click`: En el botón de "Quitar" para borrar un boleto de la lista
+
 Los elementos se crean y se eliminan de la página usando `document.createElement` y `remove`
 
 ### 3. Formulario y las 5 Validaciones
@@ -24,6 +25,6 @@ me conecte con archivos ya definidos con el archivo que esta en `js/partidos.jso
 
 ## Capturas de Pantalla de la pagina
 
-1. captura de la pagina al entrar ![alt text](image.png) 
-2. captura de la pagina con los reglas y como se reflejan al querer generar tickets ![alt text](image-1.png)
-3. captura del el tickets generado correctamente ![alt text](image-2.png)
+1. captura de la pagina al entrar ![image](image.png) 
+2. captura de la pagina con los reglas y como se reflejan al querer generar tickets ![imagen-1](image-1.png)
+3. captura del el tickets generado correctamente ![image-2](image-2.png)
