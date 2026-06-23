@@ -10,7 +10,6 @@
 
     <header>
         <h1>BETANO Mundialista 2026: Simulador de Apuestas</h1>
-        <p>Los partidos disponibles son cargados dinámicamente desde un JSON externo mediante Fetch API</p>
     </header>
 
     <main class="container">
@@ -30,6 +29,11 @@
                     <label for="task-user">Nombre del Jugador (Nombre y Apellido):</label>
                     <input type="text" id="task-user" placeholder="Ej: Diego Maradona">
                     <span class="error-msg" id="error-user"></span>
+                    <div class="form-group">
+                        <label for="task-user-confirm">Confirmar Nombre del Jugador:</label>
+                        <input type="text" id="task-user-confirm" placeholder="Confirme nombre respetando mayúsculas y minúsculas">
+                        <span class="error-msg" id="error-user-confirm"></span>
+                    </div>
                 </div>
 
                 <div class="form-group">

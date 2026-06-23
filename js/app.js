@@ -3,7 +3,8 @@ const taskList = document.getElementById('task-list');
 const searchBar = document.getElementById('search-bar');
 
 const matchSelect = document.getElementById('task-title');       
-const userInput = document.getElementById('task-user');          
+const userInput = document.getElementById('task-user');
+const userConfirmInput = document.getElementById('task-user-confirm');          
 const forecastSelect = document.getElementById('task-priority');   
 const amountInput = document.getElementById('task-date');         
 
@@ -55,11 +56,26 @@ function validateForm() {
     if (userInput.value.trim() === "") {
         showError(userInput, 'error-user', 'El nombre del jugador es obligatorio.');
         isValid = false;
-    } else if (!nameRegex.test(userInput.value.trim())) {
+    } 
+    else if (userInput.value.trim().length < 8) {
+        showError(userInput, 'error-user', 'El nombre completo debe tener al menos 8 caracteres.');
+        isValid = false;
+    } 
+    else if (!nameRegex.test(userInput.value.trim())) {
         showError(userInput, 'error-user', 'Escribe tu Nombre y Apellido (ej. Arturo Vidal).');
         isValid = false;
     } else {
         showSuccess(userInput, 'error-user');
+    }
+
+    if (userConfirmInput.value.trim() === "") {
+        showError(userConfirmInput, 'error-user-confirm', 'Por favor, confirma el nombre del jugador.');
+        isValid = false;
+    } else if (userInput.value.trim() !== userConfirmInput.value.trim()) {
+        showError(userConfirmInput, 'error-user-confirm', 'Los nombres ingresados no coinciden.');
+        isValid = false;
+    } else {
+        showSuccess(userConfirmInput, 'error-user-confirm');
     }
 
     if (forecastSelect.value === "") {
@@ -76,13 +92,11 @@ function validateForm() {
     } else if (monto < 1000) {
         showError(amountInput, 'error-date', 'El monto mínimo permitido es de $1.000 CLP.');
         isValid = false;
-    } else {
-        showSuccess(amountInput, 'error-date');
-    }
-
-    if (!isNaN(monto) && monto > 200000) {
+    } else if (monto > 200000) {
         showError(amountInput, 'error-date', 'Por seguridad, el monto máximo es de $200.000 CLP.');
         isValid = false;
+    } else {
+        showSuccess(amountInput, 'error-date');
     }
 
     return isValid;
