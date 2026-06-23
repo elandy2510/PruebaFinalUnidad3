@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETANO Mundialista 2026 - Modo Fetch</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>BETANO Mundialista 2026: Simulador de Apuestas</h1>
+        <p>Los partidos disponibles son cargados dinámicamente desde un JSON externo mediante Fetch API</p>
+    </header>
+
+    <main class="container">
+        <section class="form-section">
+            <h2>Registrar Boleto de Apuesta</h2>
+            <form id="task-form" novalidate>
+                
+                <div class="form-group">
+                    <label for="task-title">Seleccionar Partido Restante:</label>
+                    <select id="task-title">
+                        <option value="">-- Cargando partidos... --</option>
+                    </select>
+                    <span class="error-msg" id="error-title"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-user">Nombre del Jugador (Nombre y Apellido):</label>
+                    <input type="text" id="task-user" placeholder="Ej: Diego Maradona">
+                    <span class="error-msg" id="error-user"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-priority">Tu Predicción:</label>
+                    <select id="task-priority">
+                        <option value="">-- ¿Quién gana? --</option>
+                        <option value="Gana Local">Gana Local</option>
+                        <option value="Empate">Empate</option>
+                        <option value="Gana Visita">Gana Visita</option>
+                    </select>
+                    <span class="error-msg" id="error-priority"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-date">Monto a Invertir (CLP):</label>
+                    <input type="number" id="task-date" placeholder="Mínimo $1.000">
+                    <span class="error-msg" id="error-date"></span>
+                </div>
+
+                <button type="submit" id="btn-submit">Generar Ticket </button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <h2>Mis Boletos Activos</h2>
+            <div class="search-box">
+                <input type="text" id="search-bar" placeholder="Buscar boletos por país o jugador">
+            </div>
+            <ul id="task-list">
+                </ul>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
