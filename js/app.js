@@ -117,11 +117,25 @@ function renderTickets(filterText = '') {
 
         li.innerHTML = `
             <div class="ticket-info">
-                <strong>${ticket.matchText}</strong><br>
-                <small>Jugador: <b>${ticket.user}</b> | Predicción: <b>${ticket.forecast}</b></small><br>
-                <small>Monto: $${ticket.amount.toLocaleString('es-CL')} | Retorno Estimado: <em>$${gananciaEstimada.toLocaleString('es-CL')}</em></small>
+                <span class="ticket-match"> ${ticket.matchText}</span>
+                <div class="ticket-details-row">
+                    <div>Jugador: <span class="ticket-badge"> ${ticket.user}</span></div>
+                    <div>Predicción: <span class="ticket-badge ticket-badge-prediction">${ticket.forecast}</span></div>
+                </div>
             </div>
-            <button class="btn-delete" data-id="${ticket.id}">Quitar</button>
+            <div class="ticket-financials">
+                <div class="ticket-amount-box">
+                    <span>Monto Apostado</span>
+                    <strong>$${ticket.amount.toLocaleString('es-CL')}</strong>
+                </div>
+                <div class="ticket-actions">
+                    <div class="ticket-return-box">
+                        <span>Retorno Estimado</span>
+                        <em>$${gananciaEstimada.toLocaleString('es-CL')}</em>
+                    </div>
+                    <button class="btn-delete" data-id="${ticket.id}">Quitar</button>
+                </div>
+            </div>
         `;
 
         taskList.appendChild(li);
